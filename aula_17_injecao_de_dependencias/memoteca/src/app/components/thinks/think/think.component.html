@@ -1,0 +1,13 @@
+<div [ngClass]="thinkSize()" class="think {{ think.model }} ff-roboto-mono think-p">
+  <img src="../../../../assets/images/{{ think.model }}.png" alt="Aspas coloridas">
+  <p class="content">{{ think.content }}</p>
+  <p class="autoria"><b>{{ think.autoria }}</b></p>
+  <div class="actions">
+    <button class="button-edit">
+      <img src="../../../../assets/images/icone-editar.png" alt="Ícone de editar">
+    </button>
+    <button class="button-exclude">
+      <img src="../../../../assets/images/icone-excluir.png" alt="Ícone de excluir">
+    </button>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+{
+  "thinks": [
+    {
+      "id": 1,
+      "content": "Que bom que você veio",
+      "autoria": "Lucas Bargas",
+      "model": "modelo1"
+    },
+    {
+      "id": 2,
+      "content": "Estudando Angular",
+      "autoria": "Andreia Bargas",
+      "model": "modelo2"
+    },
+    {
+      "id": 3,
+      "content": "Trocando a fiação.",
+      "autoria": "Silvio José",
+      "model": "modelo3"
+    },
+    {
+      "id": 4,
+      "content": "Comendo coco",
+      "autoria": "Duque Bargas",
+      "model": "modelo1"
+    },
+    {
+      "content": "Pensamento de teste",
+      "autoria": "Lucas",
+      "model": "modelo3",
+      "id": 5
+    },
+    {
+      "content": "fdf",
+      "autoria": "dffdd",
+      "model": "modelo1",
+      "id": 6
+    },
+    {
+      "content": "trrty",
+      "autoria": "tytyty",
+      "model": "modelo1",
+      "id": 7
+    }
+  ]
+}
