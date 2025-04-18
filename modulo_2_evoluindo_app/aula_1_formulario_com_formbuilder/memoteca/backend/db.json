@@ -1,0 +1,16 @@
+{
+  "thinks": [
+    {
+      "id": 1,
+      "content": "Editei",
+      "autoria": "Editei Lucas Bargas",
+      "model": "modelo2"
+    },
+    {
+      "id": 3,
+      "content": "Trocando a fiação.",
+      "autoria": "Silvio José",
+      "model": "modelo3"
+    }
+  ]
+}
