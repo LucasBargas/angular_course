@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { IThink } from 'src/app/interface/IThink';
 import { Observable } from 'rxjs';
 
@@ -11,8 +11,16 @@ export class ThinkService {
 
   constructor(private http: HttpClient) { }
 
-  list(): Observable<IThink[]> {
-    return this.http.get<IThink[]>(this.API);
+  list(page: number): Observable<IThink[]> {
+    const itensPerPage: number = 4;
+
+    let params = new HttpParams()
+    .set("_page", page)
+    .set('_limit', itensPerPage)
+
+    return this.http.get<IThink[]>(this.API, {
+      params // O mesmo que params: params
+    });
   }
 
   create(think: IThink): Observable<IThink> {

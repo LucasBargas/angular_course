@@ -48,11 +48,7 @@ export class EditThinkComponent implements OnInit {
   }
 
   enabledButton(): string {
-    if (this.form.valid) {
-      return 'button';
-    } else {
-      return 'disabled_button';
-    }
+    return this.form.valid ? "button" : "disabled_button";
   }
 
   handleLoading() {
