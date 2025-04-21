@@ -4,7 +4,7 @@
   <p class="autoria"><b>{{ think.autoria }}</b></p>
   <div class="actions">
 
-    <button class="button-favorite" (click)="onClickButton()" title="{{ think.favorite ? 'Tirar dos favoritos' : 'Adicionar aos favoritos' }}">
+    <button class="button-favorite" (click)="onClickButton(think.id!)" title="{{ think.favorite ? 'Tirar dos favoritos' : 'Adicionar aos favoritos' }}">
       <img
         src="assets/images/icone-favorito-{{think.favorite ? 'ativo' : 'inativo' }}.png"
         alt="Ícone de tirar o favorito"

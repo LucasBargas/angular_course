@@ -9,6 +9,7 @@ import { ThinkService } from 'src/app/service/thinks/think.service';
 })
 export class ThinkComponent implements OnInit {
   @Input() think!: IThink; // Herdei o atributo da classe pai ListThinksComponent
+  @Input() favoriteList!: IThink[]; // Herdei o atributo da classe pai ListThinksComponent
 
   constructor(private service: ThinkService) { }
 
@@ -21,7 +22,8 @@ export class ThinkComponent implements OnInit {
     return content.length >= 256 ? "think-g" : "think-p";
   }
 
-  onClickButton() {
+  onClickButton(id: number) {
     this.service.changeFavorite(this.think).subscribe();
+    this.favoriteList.splice(this.favoriteList.indexOf(this.think), 1);
   }
 }

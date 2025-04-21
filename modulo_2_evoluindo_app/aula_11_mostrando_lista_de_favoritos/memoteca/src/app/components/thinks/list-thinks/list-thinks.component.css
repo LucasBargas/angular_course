@@ -23,6 +23,16 @@
   justify-content: center;
 }
 
+.buttons {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.buttons button {
+  margin: 0 2px 0 10px
+}
+
 .search-thinks{
   background: #F8F9FE;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);

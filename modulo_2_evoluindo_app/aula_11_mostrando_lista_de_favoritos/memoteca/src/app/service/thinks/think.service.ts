@@ -11,8 +11,8 @@ export class ThinkService {
 
   constructor(private http: HttpClient) { }
 
-  listByPage(page: number, filter: string): Observable<IThink[]> {
-    const itensPerPage: number = 4;
+  listByPage(page: number, filter: string, favorites: boolean): Observable<IThink[]> {
+    const itensPerPage: number = 6;
 
     let params = new HttpParams()
     .set("_page", page)
@@ -20,6 +20,10 @@ export class ThinkService {
 
     if (filter.trim().length > 2) {
       params = params.set('q', filter);
+    }
+
+    if (favorites) {
+      params = params.set('favorite', favorites);
     }
 
     return this.http.get<IThink[]>(this.API, {

@@ -16,7 +16,7 @@
     },
     {
       "id": 3,
-      "content": "Já tentei ser adulto. Devolvi. Não gostei.",
+      "content": "Já tentei ser adulto. Devolvi. Não gostei nada.",
       "autoria": "Ex-adulto Arrependido",
       "model": "modelo3",
       "favorite": false
@@ -26,7 +26,7 @@
       "content": "A vida é como Wi-Fi ruim: parece que vai, mas trava. E quando finalmente conecta, é só pra mostrar que a página não está disponível mesmo. Enfim, a vida é um eterno loading e a gente só quer ver o meme. Pense nisto e não me pergunte mais nada, por favor, já estou cansado.",
       "autoria": "Filósofo do 3G",
       "model": "modelo2",
-      "favorite": false
+      "favorite": true
     },
     {
       "id": 5,
@@ -40,7 +40,7 @@
       "content": "Por que as torradas sempre caem com o lado da manteiga pra baixo? Conspiração da gravidade.",
       "autoria": "Teórico do Café da Manhã",
       "model": "modelo2",
-      "favorite": false
+      "favorite": true
     },
     {
       "id": 7,
@@ -54,7 +54,7 @@
       "content": "Fui adulto por 5 minutos e já estou cansado. Cadê meu recreio?",
       "autoria": "Estagiário da Vida",
       "model": "modelo3",
-      "favorite": false
+      "favorite": true
     },
     {
       "id": 9,

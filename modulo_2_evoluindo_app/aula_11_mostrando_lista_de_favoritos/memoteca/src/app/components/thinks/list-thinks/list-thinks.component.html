@@ -22,12 +22,31 @@
       <p>Ainda não há pensamentos cadastrados com este tema!</p>
     </div>
 
-    <button routerLink="/criar-pensamentos" class="button">Adicionar pensamento</button>
+    <div class="buttons">
+      <button
+        (click)="onClickListButton()"
+        class="button"
+      >
+        Meu Mural
+      </button>
+
+      <button
+        class="button"
+        (click)="onClickFavoritesListButton()"
+      >
+        Meus Favoritos
+      </button>
+      <button routerLink="/criar-pensamentos" class="button">Adicionar pensamento</button>
+    </div>
   </header>
 
   <div class="showcase" *ngIf="listThinksByPage.length > 0">
     <div *ngFor="let think of listThinksByPage">
-      <app-think [think]="think"></app-think>
+      <app-think
+        [think]="think"
+        [favoriteList]="favoriteList"
+      >
+      </app-think>
     </div>
   </div>
 </section>
