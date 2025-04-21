@@ -1,0 +1,44 @@
+<section class="container" *ngIf="!isLoading, else loading">
+  <header class="header d-flex">
+    <div class="search-thinks">
+      <input
+        type="search"
+        class="filter"
+        placeholder="O que você procura?"
+        autofocus
+        [(ngModel)]="filter"
+        (keyup)="onKeyup()"
+      >
+
+      <img src="../../../../assets/images/lupa.png" alt="Lupa azul">
+    </div>
+    <h2 class="ff-inter">Meu Mural</h2>
+
+    <div *ngIf="filter.length === 0 && listThinksByPage.length === 0" class="ff-inter without-thinks">
+      <p>Ainda não há pensamentos cadastrados!</p>
+    </div>
+
+    <div *ngIf="filter.length > 0 && listThinksByPage.length === 0" class="ff-inter without-thinks">
+      <p>Ainda não há pensamentos cadastrados com este tema!</p>
+    </div>
+
+    <button routerLink="/criar-pensamentos" class="button">Adicionar pensamento</button>
+  </header>
+
+  <div class="showcase" *ngIf="listThinksByPage.length > 0">
+    <div *ngFor="let think of listThinksByPage">
+      <app-think [think]="think"></app-think>
+    </div>
+  </div>
+</section>
+
+<app-button-loading-more
+  *ngIf="listThinksByPage.length > 0 && !isLoading"
+  [hasMoreThinks]="hasMoreThinks"
+  (click)="loadMoreThinks()"
+>
+</app-button-loading-more>
+
+<ng-template #loading>
+  <app-loading></app-loading>
+</ng-template>
