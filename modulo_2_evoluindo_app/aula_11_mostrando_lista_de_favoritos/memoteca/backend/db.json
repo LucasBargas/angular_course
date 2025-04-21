@@ -6,6 +6,13 @@
       "autoria": "Lucas",
       "model": "modelo1",
       "favorite": true
+    },
+    {
+      "content": "Como faço para parar de pensar.",
+      "autoria": "Josefredo",
+      "model": "modelo3",
+      "favorite": false,
+      "id": 2
     }
   ]
 }
