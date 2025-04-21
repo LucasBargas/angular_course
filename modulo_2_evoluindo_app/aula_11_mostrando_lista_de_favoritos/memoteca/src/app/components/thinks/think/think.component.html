@@ -4,18 +4,18 @@
   <p class="autoria"><b>{{ think.autoria }}</b></p>
   <div class="actions">
 
-    <button class="button-favorite" (click)="onClickButton()">
+    <button class="button-favorite" (click)="onClickButton()" title="{{ think.favorite ? 'Tirar dos favoritos' : 'Adicionar aos favoritos' }}">
       <img
         src="assets/images/icone-favorito-{{think.favorite ? 'ativo' : 'inativo' }}.png"
         alt="Ícone de tirar o favorito"
       >
     </button>
 
-    <button class="button-edit" routerLink="/pensamentos/editar/{{think.id!}}">
+    <button class="button-edit" routerLink="/pensamentos/editar/{{think.id!}}" title="Editar">
       <img src="assets/images/icone-editar.png" alt="Ícone de editar">
     </button>
 
-    <button routerLink="/pensamentos/excluir/{{think.id!}}" class="button-exclude">
+    <button routerLink="/pensamentos/excluir/{{think.id!}}" class="button-exclude" title="Excluir">
       <img src="assets/images/icone-excluir.png" alt="Ícone de excluir">
     </button>
   </div>

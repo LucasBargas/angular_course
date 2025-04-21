@@ -2,17 +2,157 @@
   "thinks": [
     {
       "id": 1,
-      "content": "Algum pensamento editado",
-      "autoria": "Lucas",
+      "content": "Será que se eu dormir com um livro debaixo do travesseiro eu aprendo por osmose?",
+      "autoria": "Professor Sonolento",
       "model": "modelo1",
-      "favorite": true
+      "favorite": false
     },
     {
-      "content": "Como faço para parar de pensar.",
-      "autoria": "Josefredo",
+      "id": 2,
+      "content": "Se gatos mandassem no mundo, tudo fecharia às 14h pra soneca.",
+      "autoria": "Felino Visionário",
       "model": "modelo3",
-      "favorite": false,
-      "id": 2
+      "favorite": false
+    },
+    {
+      "id": 3,
+      "content": "Já tentei ser adulto. Devolvi. Não gostei.",
+      "autoria": "Ex-adulto Arrependido",
+      "model": "modelo3",
+      "favorite": false
+    },
+    {
+      "id": 4,
+      "content": "A vida é como Wi-Fi ruim: parece que vai, mas trava. E quando finalmente conecta, é só pra mostrar que a página não está disponível mesmo. Enfim, a vida é um eterno loading e a gente só quer ver o meme. Pense nisto e não me pergunte mais nada, por favor, já estou cansado.",
+      "autoria": "Filósofo do 3G",
+      "model": "modelo2",
+      "favorite": false
+    },
+    {
+      "id": 5,
+      "content": "Todo mundo quer mudar o mundo, mas ninguém quer trocar o rolo de papel higiênico.",
+      "autoria": "Revolucionário de Banheiro",
+      "model": "modelo2",
+      "favorite": false
+    },
+    {
+      "id": 6,
+      "content": "Por que as torradas sempre caem com o lado da manteiga pra baixo? Conspiração da gravidade.",
+      "autoria": "Teórico do Café da Manhã",
+      "model": "modelo2",
+      "favorite": false
+    },
+    {
+      "id": 7,
+      "content": "Se eu fosse um super-herói, meu poder seria desaparecer em eventos sociais. Invisível pra conversas forçadas e capaz de fugir antes da sobremesa. Só não sei se o nome seria 'Desaparecido' ou 'Fugido' mas com certeza seria algo relacionado a comida e talvez a um pouco de drama.",
+      "autoria": "Mestre do Sumiço",
+      "model": "modelo1",
+      "favorite": false
+    },
+    {
+      "id": 8,
+      "content": "Fui adulto por 5 minutos e já estou cansado. Cadê meu recreio?",
+      "autoria": "Estagiário da Vida",
+      "model": "modelo3",
+      "favorite": false
+    },
+    {
+      "id": 9,
+      "content": "Talvez o verdadeiro Wi-Fi está dentro da gente o tempo todo.",
+      "autoria": "Guru da Conexão",
+      "model": "modelo1",
+      "favorite": false
+    },
+    {
+      "id": 10,
+      "content": "A vida é uma peça de teatro onde o roteiro muda a cada cena e ninguém te avisa.",
+      "autoria": "Ator Improvisado",
+      "model": "modelo3",
+      "favorite": false
+    },
+    {
+      "id": 11,
+      "content": "Queria ser igual planta: tomar sol, água e ficar bonita sem fazer nada.",
+      "autoria": "Flor Pensante",
+      "model": "modelo2",
+      "favorite": false
+    },
+    {
+      "id": 12,
+      "content": "Se procrastinar fosse esporte, eu seria medalhista olímpico.",
+      "autoria": "Campeão do Amanhã",
+      "model": "modelo2",
+      "favorite": false
+    },
+    {
+      "id": 13,
+      "content": "Tentei organizar minha vida, criei uma planilha com cores, colunas e gráficos... e no final perdi o arquivo, a motivação e a vontade de tentar de novo. Acho que vou voltar a usar papel e caneta, pelo menos se eu perder, não tem erro de salvar. De qualquer forma, a caneta não apaga.",
+      "autoria": "Marina Excel",
+      "model": "modelo3",
+      "favorite": false
+    },
+    {
+      "id": 14,
+      "content": "Fiz uma promessa de não comer doce... enquanto tiver salgado em casa.",
+      "autoria": "João Nutella",
+      "model": "modelo3",
+      "favorite": false
+    },
+    {
+      "id": 15,
+      "content": "Acordei motivado. Voltei a dormir pra passar.",
+      "autoria": "Carlos Soninho",
+      "model": "modelo1",
+      "favorite": false
+    },
+    {
+      "id": 16,
+      "content": "Às vezes me pergunto se sou adulto ou só um adolescente com boletos.",
+      "autoria": "Beatriz Responsa",
+      "model": "modelo1",
+      "favorite": false
+    },
+    {
+      "id": 17,
+      "content": "Não sou indeciso. Só quero todas as opções. Ao mesmo tempo. E talvez nenhuma.",
+      "autoria": "Pedro Talvez",
+      "model": "modelo1",
+      "favorite": false
+    },
+    {
+      "id": 18,
+      "content": "Fui tentar ser fitness, baixei app de treino, segui nutricionista no Instagram... mas o pastel da feira gritou meu nome com tanta emoção que eu fui. Às vezes a vida é feita de escolhas difíceis, e eu escolhi o pastel. E a coxinha. E o caldo de cana. E o churros. E o... ah, deixa pra lá, só me passa o lanche.",
+      "autoria": "Larissa Tentativa",
+      "model": "modelo2",
+      "favorite": false
+    },
+    {
+      "id": 19,
+      "content": "Minha memória é igual Wi-Fi de praça: instável e vive caindo.",
+      "autoria": "Rafael Esqueci",
+      "model": "modelo3",
+      "favorite": false
+    },
+    {
+      "id": 20,
+      "content": "Se trabalho duro garantisse sucesso, burro de carga era milionário.",
+      "autoria": "Tatiane Reflexiva",
+      "model": "modelo3",
+      "favorite": false
+    },
+    {
+      "id": 21,
+      "content": "Tem dia que a única coisa que funciona em mim é o sarcasmo.",
+      "autoria": "André Ironia",
+      "model": "modelo3",
+      "favorite": false
+    },
+    {
+      "id": 22,
+      "content": "Sonhei que fazia exercício. Acordei cansado. Já é um começo.",
+      "autoria": "Juliana Maromba",
+      "model": "modelo2",
+      "favorite": false
     }
   ]
 }
