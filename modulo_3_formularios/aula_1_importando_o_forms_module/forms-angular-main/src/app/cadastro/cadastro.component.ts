@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { states } from '../data/states';
 import { IStates } from '../interfaces/IStates';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-cadastro',
@@ -16,7 +17,13 @@ export class CadastroComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  cadastrar(){
-    console.log('Formulário enviado');
+  cadastrar(form: NgForm): void {
+    if (form.valid) {
+      console.log(form.valid);
+      this.router.navigate(['/sucesso']);
+      return;
+    }
+    alert('Preencha todos os campos obrigatórios!');
+    return;
   }
 }
