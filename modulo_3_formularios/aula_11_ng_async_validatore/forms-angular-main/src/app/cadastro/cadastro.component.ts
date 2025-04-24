@@ -41,8 +41,7 @@ export class CadastroComponent implements OnInit {
 
   cadastrar(form: NgForm): void {
     if (form.valid) {
-      // this.router.navigate(['/sucesso']);
-      console.log(form.controls);
+      this.router.navigate(['/sucesso']);
       return;
     }
 
