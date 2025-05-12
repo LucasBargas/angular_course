@@ -2,10 +2,12 @@ import { Component } from '@angular/core';
 import { InputComponent } from "./components/input/input.component";
 import { Item } from './interfaces/iItem';
 import { ListaDeCompraService } from './service/lista-de-compra.service';
+import { CommonModule } from '@angular/common';
+import { ItemComponent } from "./components/item/item.component";
 
 @Component({
   selector: 'app-root',
-  imports: [InputComponent],
+  imports: [CommonModule, InputComponent, ItemComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -15,7 +17,6 @@ export class AppComponent {
   constructor(
     private listaDeCompraService: ListaDeCompraService
   ) {}
-
 
   ngOnInit(): void {
     this.listaDeCompras = this.listaDeCompraService.getListaDeCompra();
