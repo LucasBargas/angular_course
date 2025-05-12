@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ListaDeCompraService } from '../../service/lista-de-compra.service';
 
 @Component({
   selector: 'app-input',
@@ -11,12 +12,14 @@ import { FormsModule } from '@angular/forms';
 export class InputComponent implements OnInit {
   valorItem!: string;
 
-  constructor() { }
+  constructor(
+    private listaDeCompraService: ListaDeCompraService
+  ) { }
 
   ngOnInit(): void { }
 
   onSubmit() {
-    console.log(this.valorItem)
+    this.listaDeCompraService.postItem(this.valorItem);
     this.valorItem = '';
   }
 }
