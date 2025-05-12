@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { InputComponent } from "./components/input/input.component";
+import { Item } from './interfaces/iItem';
+import { ListaDeCompraService } from './service/lista-de-compra.service';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +10,15 @@ import { InputComponent } from "./components/input/input.component";
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'life-cycle';
+  listaDeCompras!: Item[];
+
+  constructor(
+    private listaDeCompraService: ListaDeCompraService
+  ) {}
+
+
+  ngOnInit(): void {
+    this.listaDeCompras = this.listaDeCompraService.getListaDeCompra();
+    console.log(this.listaDeCompras)
+  }
 }
