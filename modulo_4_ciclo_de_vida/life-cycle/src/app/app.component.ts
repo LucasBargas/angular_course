@@ -13,6 +13,7 @@ import { ItemComponent } from "./components/item/item.component";
 })
 export class AppComponent {
   listaDeCompras!: Item[];
+  itemParaSerEditado!: Item;
 
   constructor(
     private listaDeCompraService: ListaDeCompraService
@@ -21,5 +22,10 @@ export class AppComponent {
   ngOnInit(): void {
     this.listaDeCompras = this.listaDeCompraService.getListaDeCompra();
     console.log(this.listaDeCompras)
+  }
+
+  onEditButton(item: Item) {
+    this.itemParaSerEditado = item;
+    console.log(item)
   }
 }

@@ -6,7 +6,11 @@
       <h4 class="title-list">Lista de Compras</h4>
 
       <div *ngFor="let item of listaDeCompras">
-        <app-item [item]="item"></app-item>
+        <app-item
+          [item]="item"
+          (itemChanges)="onEditButton($event)"
+        >
+        </app-item>
       </div>
     </div>
   </div>

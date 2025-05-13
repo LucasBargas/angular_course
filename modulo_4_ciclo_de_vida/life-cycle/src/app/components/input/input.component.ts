@@ -14,7 +14,7 @@ export class InputComponent implements OnInit {
 
   constructor(
     private listaDeCompraService: ListaDeCompraService
-  ) { }
+  ) {}
 
   ngOnInit(): void { }
 
