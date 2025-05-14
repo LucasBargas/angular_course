@@ -26,6 +26,5 @@ export class AppComponent {
 
   onEditButton(item: Item) {
     this.itemParaSerEditado = item;
-    console.log(item)
   }
 }
