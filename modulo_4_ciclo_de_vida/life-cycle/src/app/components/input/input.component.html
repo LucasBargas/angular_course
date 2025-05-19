@@ -1,10 +1,11 @@
-<form class="add-item" (ngSubmit)="onSubmit()">
+<form class="add-item" (ngSubmit)="editando ? editarItem() : onSubmit()">
   <input
+    #input
     autofocus
     type="text"
     name="item"
-    placeholder="Digite o que deseja adicionar"
+    [placeholder]="editando ? 'Edite o item': 'Digite o que deseja adicionar'"
     [(ngModel)]="valorItem"
   >
-  <button type="submit">Salvar item</button>
+  <button type="submit">{{ textBtn }}</button>
 </form>

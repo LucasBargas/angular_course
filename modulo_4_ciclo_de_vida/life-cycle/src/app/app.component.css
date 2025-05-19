@@ -36,7 +36,9 @@
 }
 
 small {
-  font-size: .5rem;
+  margin-top: .4rem;
+  display: block;
+  font-size: .75rem;
 }
 
 .checkbox {
