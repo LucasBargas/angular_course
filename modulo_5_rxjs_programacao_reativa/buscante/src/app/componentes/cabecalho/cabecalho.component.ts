@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
   selector: 'app-cabecalho',
   imports: [CommonModule],
   templateUrl: './cabecalho.component.html',
-  styleUrls: ['./cabecalho.component.css']
+  styleUrls: ['./cabecalho.component.css'],
 })
 export class CabecalhoComponent {
 

@@ -10,12 +10,11 @@ const body = document.querySelector("body");
   styleUrls: ['./modal-livro.component.css']
 })
 export class ModalLivroComponent {
+  @Input() livro!: Object;
+  @Output() mudouModal = new EventEmitter();
+  statusModal: boolean = true;
 
   constructor() { }
-
-  @Input() livro!: Object;
-  statusModal: boolean = true;
-  @Output() mudouModal = new EventEmitter()
 
   fecharModal() {
     this.statusModal = false
