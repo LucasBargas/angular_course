@@ -19,7 +19,7 @@ export class ListaDeCompraService {
   postItem(nomeDoItem: string) {
     const item = this.criaItem(nomeDoItem);
     this.listaDeCompra.push(item);
-    // this.atualizarLocalStorage();
+    this.atualizarLocalStorage();
   }
 
   criaItem(nomeDoIten: string) {
@@ -44,7 +44,7 @@ export class ListaDeCompraService {
 
     const id = itemAntigo.id;
     this.listaDeCompra.splice(Number(id) - 1, 1, itemEditado);
-    // this.atualizarLocalStorage();
+    this.atualizarLocalStorage();
   }
 
   atualizarLocalStorage() {

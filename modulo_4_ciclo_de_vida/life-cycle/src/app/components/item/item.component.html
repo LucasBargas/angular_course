@@ -12,7 +12,12 @@
   class="d-contents"
   *ngIf="!item.comprado"
 >
-  <fa-icon class="delete-icon" [icon]="faTrash" ></fa-icon>
+  <fa-icon
+    (click)="onDeleteButton()"
+    class="delete-icon"
+    [icon]="faTrash"
+  >
+  </fa-icon>
   <fa-icon
     (click)="onEditButton()"
     class="edit-icon"

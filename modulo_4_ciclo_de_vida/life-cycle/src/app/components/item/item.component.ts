@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Item } from '../../interfaces/iItem';
@@ -10,9 +10,10 @@ import { Item } from '../../interfaces/iItem';
   templateUrl: './item.component.html',
   styleUrl: './item.component.css'
 })
-export class ItemComponent implements OnInit, OnChanges {
+export class ItemComponent implements OnInit, OnChanges, OnDestroy {
   @Input() item!: Item;
-  @Output() itemChanges = new EventEmitter<Item>();
+  @Output() emitindoItemParaEditar = new EventEmitter<Item>();
+  @Output() emitindoIdParaDeletar = new EventEmitter();
   faPen = faPen;
   faTrash = faTrash
 
@@ -25,6 +26,15 @@ export class ItemComponent implements OnInit, OnChanges {
   }
 
   onEditButton() {
-    this.itemChanges.emit(this.item);
+    this.emitindoItemParaEditar.emit(this.item);
+  }
+
+  onDeleteButton() {
+    console.log('Estão tentando me calar.')
+    this.emitindoIdParaDeletar.emit(this.item.id)
+  }
+
+  ngOnDestroy(): void {
+    console.log('Consguriram me calar');
   }
 }
