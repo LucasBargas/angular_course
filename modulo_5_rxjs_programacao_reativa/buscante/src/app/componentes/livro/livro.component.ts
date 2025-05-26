@@ -9,7 +9,6 @@ import { ModalLivroComponent } from '../../views/modal-livro/modal-livro.compone
   styleUrls: ['./livro.component.css']
 })
 export class LivroComponent {
-
   @Input() livro!: Object;
   modalAberto!: boolean;
 
