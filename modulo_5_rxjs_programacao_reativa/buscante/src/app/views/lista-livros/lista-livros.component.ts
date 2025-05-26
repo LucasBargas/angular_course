@@ -13,13 +13,18 @@ import { LivroService } from '../../service/livro.service';
 export class ListaLivrosComponent {
   listaLivros: [] = [];
   campoBusca: string = '';
+  error = '';
 
   constructor(private livroService: LivroService) { }
 
   buscarLivros() {
-    this.livroService.buscar(this.campoBusca).subscribe((resposta: any) => {
-      console.log(resposta);
-    });
+    this.livroService.buscar(this.campoBusca).subscribe(
+      {
+        next: retornoAPI => console.log(retornoAPI),
+        error: erro => console.error('Erro ao buscar livros:', erro),
+        complete: () => console.log('Busca de livros concluída')
+      }
+    )
   }
 }
 

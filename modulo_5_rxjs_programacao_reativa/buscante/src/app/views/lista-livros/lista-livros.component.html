@@ -11,6 +11,7 @@
     </button>
   </form>
   <p>Busque por assunto, autoria, nome...</p>
+  <span style="width: 70%;">{{error}}</span>
 <div class="container-card" *ngIf="listaLivros.length > 0, else telaInicial">
   <div *ngFor="let livro of listaLivros">
     <app-livro [livro]="livro"></app-livro>
