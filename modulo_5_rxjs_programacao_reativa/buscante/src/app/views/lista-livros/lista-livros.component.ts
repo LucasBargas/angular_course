@@ -9,7 +9,7 @@ import { LivroComponent } from "../../componentes/livro/livro.component";
   styleUrls: ['./lista-livros.component.css']
 })
 export class ListaLivrosComponent {
-  listaLivros!: [];
+  listaLivros: [] = [];
 }
 
 
