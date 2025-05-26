@@ -4,6 +4,7 @@ import { LivroComponent } from "../../componentes/livro/livro.component";
 import { FormsModule } from '@angular/forms';
 import { LivroService } from '../../service/livro.service';
 import { Subscription } from 'rxjs';
+import { Item } from '../../models/interfaces';
 
 @Component({
   selector: 'app-lista-livros',
@@ -13,7 +14,7 @@ import { Subscription } from 'rxjs';
 })
 export class ListaLivrosComponent implements OnDestroy {
   private subscription: Subscription | null = null;
-  listaLivros: [] = [];
+  listaLivros = [];
   campoBusca: string = '';
 
   constructor(private livroService: LivroService) { }
@@ -21,7 +22,7 @@ export class ListaLivrosComponent implements OnDestroy {
   buscarLivros() {
     this.subscription = this.livroService.buscar(this.campoBusca).subscribe(
       {
-        next: retornoAPI => console.log(retornoAPI),
+        next: retornoAPI => console.log(),
         error: erro => console.error('Erro ao buscar livros:', erro),
         complete: () => console.log('Busca de livros concluída')
       }
