@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { LivroComponent } from "../../componentes/livro/livro.component";
 import { FormsModule } from '@angular/forms';
 import { LivroService } from '../../service/livro.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-lista-livros',
@@ -10,21 +11,27 @@ import { LivroService } from '../../service/livro.service';
   templateUrl: './lista-livros.component.html',
   styleUrls: ['./lista-livros.component.css']
 })
-export class ListaLivrosComponent {
+export class ListaLivrosComponent implements OnDestroy {
+  private subscription: Subscription | null = null;
   listaLivros: [] = [];
   campoBusca: string = '';
-  error = '';
 
   constructor(private livroService: LivroService) { }
 
   buscarLivros() {
-    this.livroService.buscar(this.campoBusca).subscribe(
+    this.subscription = this.livroService.buscar(this.campoBusca).subscribe(
       {
         next: retornoAPI => console.log(retornoAPI),
         error: erro => console.error('Erro ao buscar livros:', erro),
         complete: () => console.log('Busca de livros concluída')
       }
     )
+  }
+
+  ngOnDestroy(): void {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 }
 
