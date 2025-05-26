@@ -12,7 +12,7 @@ export class LivroService {
     private http: HttpClient
   ) { }
 
-  buscar(valorDigitado: string): Observable<Object> {
+  buscar(valorDigitado: string): Observable<any> {
     const params = new HttpParams().append('q', valorDigitado);
     return this.http.get(`${this.API}`, { params });
   }
