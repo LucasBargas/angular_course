@@ -1,17 +1,19 @@
 import { CommonModule } from '@angular/common';
 import { Component, input, output } from '@angular/core';
 import { Livro } from '../../models/interfaces';
+import { AutoriaPipe } from '../../pipes/autoria.pipe';
 
 const body = document.querySelector("body");
 
 @Component({
   selector: 'app-modal-livro',
-  imports: [CommonModule],
+  standalone: true,
+  imports: [CommonModule, AutoriaPipe],
   templateUrl: './modal-livro.component.html',
   styleUrls: ['./modal-livro.component.css']
 })
 export class ModalLivroComponent {
-  livro = input<Livro>();
+  livro = input.required<Livro>();
   mudouModal = output<boolean>();
   statusModal: boolean = true;
 
@@ -30,7 +32,6 @@ export class ModalLivroComponent {
   }
 
   lerPrevia() {
-    window.open( '_blank');
+    window.open(this.livro().previewLink, '_blank');
   }
-
 }

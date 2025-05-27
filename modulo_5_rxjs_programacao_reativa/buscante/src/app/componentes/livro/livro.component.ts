@@ -1,11 +1,14 @@
 import { CommonModule } from '@angular/common';
-import { Component, input, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { ModalLivroComponent } from '../../views/modal-livro/modal-livro.component';
 import { Livro } from '../../models/interfaces';
+import { AutoriaPipe } from '../../pipes/autoria.pipe';
+import { EditoraPipe } from '../../pipes/editora.pipe';
 
 @Component({
   selector: 'app-livro',
-  imports: [CommonModule, ModalLivroComponent],
+  standalone: true,
+  imports: [CommonModule, ModalLivroComponent, AutoriaPipe, EditoraPipe],
   templateUrl: './livro.component.html',
   styleUrls: ['./livro.component.css']
 })
