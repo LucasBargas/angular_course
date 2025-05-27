@@ -1,46 +1,35 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { LivroComponent } from "../../componentes/livro/livro.component";
-import { FormsModule } from '@angular/forms';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { LivroService } from '../../service/livro.service';
-import { Subscription } from 'rxjs';
-import { Item, Livro } from '../../models/interfaces';
-import { LivroValumeInfo } from '../../models/LivroValumeInfo';
+import { debounceTime, filter, map, switchMap, tap } from 'rxjs';
+import { Item } from '../../models/interfaces';
+import { LivroVolumeInfo } from '../../models/LivroVolumeInfo';
 
 @Component({
   selector: 'app-lista-livros',
-  imports: [CommonModule, LivroComponent, FormsModule],
+  standalone: true,
+  imports: [CommonModule, LivroComponent, ReactiveFormsModule],
   templateUrl: './lista-livros.component.html',
   styleUrls: ['./lista-livros.component.css']
 })
-export class ListaLivrosComponent implements OnDestroy {
-  private subscription: Subscription | null = null;
-  listaLivros: Livro[] = [];
-  campoBusca: string = '';
+export class ListaLivrosComponent {
+  campoBusca = new FormControl();
 
   constructor(private livroService: LivroService) { }
 
-  ngOnDestroy(): void {
-    if (this.subscription) {
-      this.subscription.unsubscribe();
-    }
-  }
+  livrosEncontrados$ = this.campoBusca.valueChanges.pipe(
+    debounceTime(300), // Aguarda 300ms após o último evento de digitação
+    filter((valorDigitado: string) => valorDigitado.length > 2),
+    tap(() => console.log('Fluxo inicial')),
+    switchMap((valorDigitado: string) => this.livroService.buscar(valorDigitado)),
+    tap((retornoAPI) => console.log(retornoAPI)),
+    map((items: Item[]) => this.livrosResultadoParaLivros(items))
+  )
 
-  onSubmit() {
-    this.subscription = this.livroService.buscar(this.campoBusca).subscribe(
-      {
-        next: items => {
-          this.listaLivros = this.livrosResultadoParaLivros(items);
-        },
-        error: erro => console.error('Erro ao buscar livros:', erro),
-      }
-    )
-
-    this.campoBusca = '';
-  }
-
-  livrosResultadoParaLivros(items: Item[]): LivroValumeInfo[] {
-    return items.map((item: Item) => new LivroValumeInfo(item));
+  livrosResultadoParaLivros(items: Item[]): LivroVolumeInfo[] {
+    return items.map((item: Item) => new LivroVolumeInfo(item));
   }
 }
 

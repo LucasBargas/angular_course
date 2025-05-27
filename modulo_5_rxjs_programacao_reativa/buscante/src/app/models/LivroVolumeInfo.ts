@@ -1,6 +1,6 @@
 import { Item } from "./interfaces";
 
-export class LivroValumeInfo {
+export class LivroVolumeInfo {
   title?: string;
   authors?: string[];
   publisher?: string;
