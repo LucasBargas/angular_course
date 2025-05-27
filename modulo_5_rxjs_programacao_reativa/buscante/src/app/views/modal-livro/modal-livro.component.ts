@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, input, output } from '@angular/core';
+import { Livro } from '../../models/interfaces';
 
 const body = document.querySelector("body");
 
@@ -10,8 +11,8 @@ const body = document.querySelector("body");
   styleUrls: ['./modal-livro.component.css']
 })
 export class ModalLivroComponent {
-  @Input() livro!: Object;
-  @Output() mudouModal = new EventEmitter();
+  livro = input<Livro>();
+  mudouModal = output<boolean>();
   statusModal: boolean = true;
 
   constructor() { }

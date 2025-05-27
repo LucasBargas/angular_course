@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, input, Input } from '@angular/core';
 import { ModalLivroComponent } from '../../views/modal-livro/modal-livro.component';
 import { Livro } from '../../models/interfaces';
 
@@ -10,7 +10,7 @@ import { Livro } from '../../models/interfaces';
   styleUrls: ['./livro.component.css']
 })
 export class LivroComponent {
-  @Input() livro!: Livro;
+  livro = input.required<Livro>();
   modalAberto!: boolean;
 
   onModalChange(evento: boolean) {
