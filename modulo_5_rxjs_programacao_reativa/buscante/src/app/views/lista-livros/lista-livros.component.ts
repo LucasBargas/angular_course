@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { LivroService } from '../../service/livro.service';
 import { Subscription } from 'rxjs';
 import { Item, Livro } from '../../models/interfaces';
+import { LivroValumeInfo } from '../../models/LivroValumeInfo';
 
 @Component({
   selector: 'app-lista-livros',
@@ -38,20 +39,8 @@ export class ListaLivrosComponent implements OnDestroy {
     this.campoBusca = '';
   }
 
-  livrosResultadoParaLivros(items: Item[]): Livro[] {
-    return items.map((item: Item) => {
-      const volumeInfo = item.volumeInfo;
-
-      return {
-        title: volumeInfo?.title,
-        authors: volumeInfo?.authors,
-        publisher: volumeInfo?.publisher,
-        publishedDate: new Date(volumeInfo?.publishedDate),
-        description: volumeInfo?.description,
-        previewLink: volumeInfo?.infoLink,
-        thumbnail: volumeInfo?.imageLinks?.thumbnail
-      };
-    });
+  livrosResultadoParaLivros(items: Item[]): LivroValumeInfo[] {
+    return items.map((item: Item) => new LivroValumeInfo(item));
   }
 }
 
