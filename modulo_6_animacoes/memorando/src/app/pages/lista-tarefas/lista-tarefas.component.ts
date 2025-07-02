@@ -1,8 +1,13 @@
 import { Component, OnInit, signal } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { TarefaService } from '../../service/tarefa.service';
 import { CommonModule } from '@angular/common';
-import { MensagemComponent } from "../../componentes/mensagem/mensagem.component";
+import { MensagemComponent } from '../../componentes/mensagem/mensagem.component';
 import { Tarefa } from '../../interface/tarefa';
 
 @Component({
@@ -10,7 +15,7 @@ import { Tarefa } from '../../interface/tarefa';
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, MensagemComponent],
   templateUrl: './lista-tarefas.component.html',
-  styleUrls: ['./lista-tarefas.component.css']
+  styleUrls: ['./lista-tarefas.component.css'],
 })
 export class ListaTarefasComponent implements OnInit {
   listaTarefas = signal<Tarefa[]>([]);
@@ -23,7 +28,7 @@ export class ListaTarefasComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private service: TarefaService,
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.formulario = this.formBuilder.group({
@@ -37,12 +42,12 @@ export class ListaTarefasComponent implements OnInit {
     this.lista();
   }
 
-  mostrarOuEsconderFormulario() {
+  mostrarOuEsconderFormulario(): void {
     this.formAberto = !this.formAberto;
     this.resetarFormulario();
   }
 
-  salvarTarefa() {
+  salvarTarefa(): void {
     if (this.formulario.value.id) {
       this.editarTarefa();
     } else {
@@ -50,36 +55,36 @@ export class ListaTarefasComponent implements OnInit {
     }
   }
 
-  editarTarefa() {
+  editarTarefa(): void {
     this.service.editar(this.formulario.value).subscribe({
       next: () => {
         this.lista();
-      }
+      },
     });
   }
 
-  criarTarefa() {
+  criarTarefa(): void {
     this.service.criar(this.formulario.value).subscribe();
   }
 
-  excluirTarefa(id: number) {
+  excluirTarefa(id: number): void {
     if (id) {
       this.service.excluir(id).subscribe({
-        next: () => this.lista()
+        next: () => this.lista(),
       });
     }
   }
 
-  cancelar() {
+  cancelar(): void {
     this.resetarFormulario();
     this.formAberto = false;
   }
 
-  resetarFormulario() {
+  resetarFormulario(): void {
     this.formulario.reset();
   }
 
-  carregarParaEditar(id: number) {
+  carregarParaEditar(id: number): void {
     this.service.buscarPorId(id).subscribe((tarefa) => {
       this.formulario = this.formBuilder.group({
         id: [tarefa.id],
@@ -92,7 +97,7 @@ export class ListaTarefasComponent implements OnInit {
     this.formAberto = true;
   }
 
-  finalizarTarefa(id: number) {
+  finalizarTarefa(id: number): void {
     this.service.buscarPorId(id).subscribe((tarefa) => {
       this.service.atualizarStatusTarefa(tarefa).subscribe(() => {
         this.lista();
@@ -100,7 +105,7 @@ export class ListaTarefasComponent implements OnInit {
     });
   }
 
-  lista() {
+  lista(): void {
     this.service.listar(this.categoria).subscribe((listaTarefas) => {
       this.listaTarefas.set(listaTarefas);
     });
