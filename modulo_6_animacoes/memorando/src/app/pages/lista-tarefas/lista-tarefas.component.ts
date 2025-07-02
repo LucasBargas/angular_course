@@ -65,9 +65,7 @@ export class ListaTarefasComponent implements OnInit {
   excluirTarefa(id: number) {
     if (id) {
       this.service.excluir(id).subscribe({
-        next: () => {
-          this.lista();
-        }
+        next: () => this.lista()
       });
     }
   }
