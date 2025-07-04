@@ -56,9 +56,11 @@ export class ListaTarefasComponent implements OnInit {
   }
 
   editarTarefa(): void {
-    this.service.editar(this.formulario.value).subscribe({
+    const tarefa: Tarefa = this.formulario.value;
+    this.service.editar(tarefa).subscribe({
       next: () => {
         this.lista();
+        this.cancelar();
       },
     });
   }
@@ -111,7 +113,7 @@ export class ListaTarefasComponent implements OnInit {
     });
   }
 
-  habilitarBotao(): string {
+  get habilitarBotao(): string {
     return this.formulario.valid ? 'botao-salvar' : 'botao-desabilitado';
   }
 
