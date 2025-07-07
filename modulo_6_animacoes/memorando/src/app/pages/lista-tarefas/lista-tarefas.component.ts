@@ -70,12 +70,8 @@ export class ListaTarefasComponent implements OnInit {
   }
 
   editarTarefa(): void {
-<<<<<<< HEAD
     const tarefa: Tarefa = this.formulario.value;
     this.service.editar(tarefa).subscribe({
-=======
-    this._service.editar(this.formulario.value).subscribe({
->>>>>>> module-6/aula1-modulo-animacoes
       next: () => {
         this.lista();
         this.cancelar();
