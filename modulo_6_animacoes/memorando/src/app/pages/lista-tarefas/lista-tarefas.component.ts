@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 import { MensagemComponent } from '../../componentes/mensagem/mensagem.component';
 import { Tarefa } from '../../interface/tarefa';
 import { state, style, trigger } from '@angular/animations';
+
 @Component({
   selector: 'app-lista-tarefas',
   standalone: true,
@@ -22,6 +23,7 @@ import { state, style, trigger } from '@angular/animations';
         'default',
         style({
           border: '2px solid #b2b6ff',
+          filter: 'brightness(100%)',
         }),
       ),
       state(
@@ -78,7 +80,9 @@ export class ListaTarefasComponent implements OnInit {
   }
 
   criarTarefa(): void {
-    this._service.criar(this.formulario.value).subscribe();
+    this._service.criar(this.formulario.value).subscribe(() => {
+      this.lista(); // Opcional: atualizar lista ao criar
+    });
   }
 
   excluirTarefa(id: number): void {
@@ -131,12 +135,9 @@ export class ListaTarefasComponent implements OnInit {
 
   campoValidado(campoAtual: string): string {
     const campo = this.formulario.get(campoAtual);
-    if (campo?.errors && campo?.touched) {
-      this.validado = false;
-      return 'form-tarefa input-invalido';
-    } else {
-      this.validado = true;
-      return 'form-tarefa';
+    if (campo?.touched && campo?.invalid) {
+      return 'campo-invalido';
     }
+    return '';
   }
 }
