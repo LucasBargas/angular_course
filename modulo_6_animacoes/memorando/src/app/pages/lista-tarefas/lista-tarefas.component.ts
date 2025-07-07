@@ -28,7 +28,6 @@ import { state, style, trigger } from '@angular/animations';
         'highlighted',
         style({
           border: '4px solid #b2b6ff',
-          filter: 'brightness(95%)',
         }),
       ),
     ]),
@@ -42,7 +41,6 @@ export class ListaTarefasComponent implements OnInit {
   categoria: string = '';
   validado: boolean = false;
   formulario!: FormGroup;
-  indexTarefa = -1;
 
   ngOnInit(): void {
     this.formulario = this._formBuilder.group({
@@ -70,11 +68,14 @@ export class ListaTarefasComponent implements OnInit {
   }
 
   editarTarefa(): void {
+<<<<<<< HEAD
     const tarefa: Tarefa = this.formulario.value;
     this.service.editar(tarefa).subscribe({
+=======
+    this._service.editar(this.formulario.value).subscribe({
+>>>>>>> module-6/aula1-modulo-animacoes
       next: () => {
         this.lista();
-        this.cancelar();
       },
     });
   }
@@ -127,12 +128,13 @@ export class ListaTarefasComponent implements OnInit {
     });
   }
 
-  get habilitarBotao(): string {
-    return this.formulario.valid ? 'botao-salvar' : 'botao-desabilitado';
+  habilitarBotao(): string {
+as.set(listaTarefas);
+    });
   }
 
-  campoValidado(campoAtual: string): string {
-    const campo = this.formulario.get(campoAtual);
+  get habilitarBotao(): string {
+ const campo = this.formulario.get(campoAtual);
     if (campo?.errors && campo?.touched) {
       this.validado = false;
       return 'form-tarefa input-invalido';
