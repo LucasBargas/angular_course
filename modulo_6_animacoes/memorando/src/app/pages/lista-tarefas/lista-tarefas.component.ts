@@ -28,7 +28,7 @@ import { state, style, trigger } from '@angular/animations';
         'highlighted',
         style({
           border: '4px solid #b2b6ff',
-          filter: 'brightness(95%)',
+          filter: 'brightness',
         }),
       ),
     ]),
@@ -70,15 +70,9 @@ export class ListaTarefasComponent implements OnInit {
   }
 
   editarTarefa(): void {
-<<<<<<< HEAD
-    const tarefa: Tarefa = this.formulario.value;
-    this.service.editar(tarefa).subscribe({
-=======
     this._service.editar(this.formulario.value).subscribe({
->>>>>>> module-6/aula1-modulo-animacoes
       next: () => {
         this.lista();
-        this.cancelar();
       },
     });
   }
@@ -131,7 +125,7 @@ export class ListaTarefasComponent implements OnInit {
     });
   }
 
-  get habilitarBotao(): string {
+  habilitarBotao(): string {
     return this.formulario.valid ? 'botao-salvar' : 'botao-desabilitado';
   }
 
