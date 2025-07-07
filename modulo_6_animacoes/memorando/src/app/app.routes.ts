@@ -7,15 +7,14 @@ export const routes: Routes = [
     redirectTo: 'lista-de-tarefas',
     pathMatch: 'full',
     data: {
-      reuseComponent: true
-    }
+      reuseComponent: true,
+    },
   },
   {
     path: 'lista-de-tarefas',
     component: ListaTarefasComponent,
     data: {
-      reuseComponent: true
-    }
-  }
+      reuseComponent: true,
+    },
+  },
 ];
-
