@@ -11,7 +11,7 @@
       "id": 2,
       "descricao": "Estudar sobre acessibilidade",
       "categoria": "Trabalho",
-      "statusFinalizado": false,
+      "statusFinalizado": true,
       "prioridade": "Normal"
     },
     {
@@ -31,6 +31,10 @@
     {
       "id": 6,
       "descricao": "Ler",
+<<<<<<< HEAD
+=======
+      "statusFinalizado": false,
+>>>>>>> module-6/aula1-modulo-animacoes
       "categoria": "Estudos",
       "statusFinalizado": false,
       "prioridade": "Alta"

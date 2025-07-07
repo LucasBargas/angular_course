@@ -1,37 +1,51 @@
-import { Component, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import {
-  FormBuilder,
   FormGroup,
   ReactiveFormsModule,
   Validators,
+  FormBuilder,
 } from '@angular/forms';
 import { TarefaService } from '../../service/tarefa.service';
 import { CommonModule } from '@angular/common';
 import { MensagemComponent } from '../../componentes/mensagem/mensagem.component';
 import { Tarefa } from '../../interface/tarefa';
-
+import { state, style, trigger } from '@angular/animations';
 @Component({
   selector: 'app-lista-tarefas',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, MensagemComponent],
   templateUrl: './lista-tarefas.component.html',
   styleUrls: ['./lista-tarefas.component.css'],
+  animations: [
+    trigger('highlightedState', [
+      state(
+        'default',
+        style({
+          border: '2px solid #b2b6ff',
+        }),
+      ),
+      state(
+        'highlighted',
+        style({
+          border: '4px solid #b2b6ff',
+          filter: 'brightness(95%)',
+        }),
+      ),
+    ]),
+  ],
 })
 export class ListaTarefasComponent implements OnInit {
+  private _formBuilder = inject(FormBuilder);
+  private _service = inject(TarefaService);
   listaTarefas = signal<Tarefa[]>([]);
   formAberto: boolean = false;
   categoria: string = '';
   validado: boolean = false;
-
   formulario!: FormGroup;
-
-  constructor(
-    private formBuilder: FormBuilder,
-    private service: TarefaService,
-  ) {}
+  indexTarefa = -1;
 
   ngOnInit(): void {
-    this.formulario = this.formBuilder.group({
+    this.formulario = this._formBuilder.group({
       id: [0],
       descricao: ['', Validators.required],
       statusFinalizado: [false, Validators.required],
@@ -56,8 +70,12 @@ export class ListaTarefasComponent implements OnInit {
   }
 
   editarTarefa(): void {
+<<<<<<< HEAD
     const tarefa: Tarefa = this.formulario.value;
     this.service.editar(tarefa).subscribe({
+=======
+    this._service.editar(this.formulario.value).subscribe({
+>>>>>>> module-6/aula1-modulo-animacoes
       next: () => {
         this.lista();
         this.cancelar();
@@ -66,12 +84,12 @@ export class ListaTarefasComponent implements OnInit {
   }
 
   criarTarefa(): void {
-    this.service.criar(this.formulario.value).subscribe();
+    this._service.criar(this.formulario.value).subscribe();
   }
 
   excluirTarefa(id: number): void {
     if (id) {
-      this.service.excluir(id).subscribe({
+      this._service.excluir(id).subscribe({
         next: () => this.lista(),
       });
     }
@@ -87,8 +105,8 @@ export class ListaTarefasComponent implements OnInit {
   }
 
   carregarParaEditar(id: number): void {
-    this.service.buscarPorId(id).subscribe((tarefa) => {
-      this.formulario = this.formBuilder.group({
+    this._service.buscarPorId(id).subscribe((tarefa) => {
+      this.formulario = this._formBuilder.group({
         id: [tarefa.id],
         descricao: [tarefa.descricao],
         categoria: [tarefa.categoria],
@@ -100,15 +118,15 @@ export class ListaTarefasComponent implements OnInit {
   }
 
   finalizarTarefa(id: number): void {
-    this.service.buscarPorId(id).subscribe((tarefa) => {
-      this.service.atualizarStatusTarefa(tarefa).subscribe(() => {
+    this._service.buscarPorId(id).subscribe((tarefa) => {
+      this._service.atualizarStatusTarefa(tarefa).subscribe(() => {
         this.lista();
       });
     });
   }
 
   lista(): void {
-    this.service.listar(this.categoria).subscribe((listaTarefas) => {
+    this._service.listar(this.categoria).subscribe((listaTarefas) => {
       this.listaTarefas.set(listaTarefas);
     });
   }
