@@ -9,7 +9,7 @@ import { TarefaService } from '../../service/tarefa.service';
 import { CommonModule } from '@angular/common';
 import { MensagemComponent } from '../../componentes/mensagem/mensagem.component';
 import { Tarefa } from '../../interface/tarefa';
-import { state, style, trigger } from '@angular/animations';
+import { highlightedStateTrigger } from '../../animations/highlight.animations';
 
 @Component({
   selector: 'app-lista-tarefas',
@@ -17,24 +17,7 @@ import { state, style, trigger } from '@angular/animations';
   imports: [CommonModule, ReactiveFormsModule, MensagemComponent],
   templateUrl: './lista-tarefas.component.html',
   styleUrls: ['./lista-tarefas.component.css'],
-  animations: [
-    trigger('highlightedState', [
-      state(
-        'default',
-        style({
-          border: '2px solid #b2b6ff',
-          filter: 'brightness(100%)',
-        }),
-      ),
-      state(
-        'highlighted',
-        style({
-          border: '4px solid #b2b6ff',
-          filter: 'brightness(95%)',
-        }),
-      ),
-    ]),
-  ],
+  animations: [highlightedStateTrigger],
 })
 export class ListaTarefasComponent implements OnInit {
   private _formBuilder = inject(FormBuilder);
