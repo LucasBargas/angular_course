@@ -28,7 +28,7 @@ import { state, style, trigger } from '@angular/animations';
         'highlighted',
         style({
           border: '4px solid #b2b6ff',
-          filter: 'brightness',
+          filter: 'brightness(95%)',
         }),
       ),
     ]),
