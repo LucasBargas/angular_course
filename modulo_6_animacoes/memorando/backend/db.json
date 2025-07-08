@@ -23,7 +23,7 @@
     },
     {
       "id": 5,
-      "descricao": "Trocar lâmpada",
+      "descricao": "Trocar lâmpada 2",
       "categoria": "Casa",
       "statusFinalizado": false,
       "prioridade": "Alta"
@@ -31,10 +31,6 @@
     {
       "id": 6,
       "descricao": "Ler",
-<<<<<<< HEAD
-=======
-      "statusFinalizado": false,
->>>>>>> module-6/aula1-modulo-animacoes
       "categoria": "Estudos",
       "statusFinalizado": false,
       "prioridade": "Alta"

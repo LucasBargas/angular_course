@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 import { MensagemComponent } from '../../componentes/mensagem/mensagem.component';
 import { Tarefa } from '../../interface/tarefa';
 import { highlightedStateTrigger } from '../../animations/highlight.animations';
+import { showStateTrigger } from '../../animations/show.animations';
 
 @Component({
   selector: 'app-lista-tarefas',
@@ -17,7 +18,7 @@ import { highlightedStateTrigger } from '../../animations/highlight.animations';
   imports: [CommonModule, ReactiveFormsModule, MensagemComponent],
   templateUrl: './lista-tarefas.component.html',
   styleUrls: ['./lista-tarefas.component.css'],
-  animations: [highlightedStateTrigger],
+  animations: [highlightedStateTrigger, showStateTrigger],
 })
 export class ListaTarefasComponent implements OnInit {
   private _formBuilder = inject(FormBuilder);
@@ -64,7 +65,7 @@ export class ListaTarefasComponent implements OnInit {
 
   criarTarefa(): void {
     this._service.criar(this.formulario.value).subscribe(() => {
-      this.lista(); // Opcional: atualizar lista ao criar
+      this.lista();
     });
   }
 
