@@ -7,8 +7,7 @@ import {
 } from '@angular/animations';
 
 export const showStateTrigger = trigger('showState', [
-  state('show', style({})),
-  transition('void => show', [
+  transition(':enter', [
     style({
       opacity: 0,
     }),
@@ -19,7 +18,7 @@ export const showStateTrigger = trigger('showState', [
       }),
     ),
   ]),
-  transition('show => void', [
+  transition(':leave', [
     animate(
       300,
       style({
