@@ -1,3 +1,4 @@
+import { TestBed } from '@angular/core/testing';
 import { livros } from '../mock-livros';
 import { GeneroLiterario, Livro } from '../models/livro.models';
 import { ErroGeneroLiterario, LivroService } from './livro.service';
@@ -7,7 +8,8 @@ describe('LivroService', () => {
 
   // Run before each test
   beforeEach(() => {
-    service = new LivroService();
+    TestBed.configureTestingModule({ providers: [LivroService] });
+    service = TestBed.inject(LivroService);
   });
 
   it('deveria ser criado', () => {
