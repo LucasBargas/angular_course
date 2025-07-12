@@ -1,0 +1,20 @@
+{
+  "files.exclude": {
+    ".vscode": true,
+    ".angular": true,
+    ".git": true,
+    "node_modules": true,
+    ".editorconfig": true,
+    "package-lock.json": true,
+    "package.json": true,
+    "angular.json": true,
+    ".gitignore": true,
+    "README.md": true,
+    ".browserslistrc": true,
+    "tsconfig.json": true,
+    "tsconfig.app.json": true,
+    "tsconfig.spec.json": true,
+    "polyfills.ts": true,
+    ".prettierrc.js": true
+  }
+}
